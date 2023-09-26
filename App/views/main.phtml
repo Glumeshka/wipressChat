@@ -1,0 +1,61 @@
+<body>
+	<main class="container_login">
+		<div class="d-flex justify-content-center h-100" >
+			<div class="card_login">
+				<div class="card-header">
+					<ul class="d-flex justify-content-center">
+						<li><a href="#" class="btn btn-primary btn-lg active log_btn" role="button" aria-pressed="true" id="showLogin">Вход</a>
+						<li><a href="#" class="btn btn-secondary btn-lg active reg_btn" role="button" aria-pressed="true" id="showRegistr">Регистрация</a>
+					</ul>
+				</div>
+					<?php if(!empty($pageData['message'])) { echo '<div class="error d-flex justify-content-center">' . $pageData['message'] . '</div>';}?>
+				<div class="card-body">
+					<form id="loginForm" method="post" action="/Main/logon">
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-at"></i></span>
+							</div>
+							<input type="email" class="form-control" placeholder="your@email" name="email" required autofocus>
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" class="form-control" placeholder="password" name="password" required>
+						</div>
+						<div class="row align-items-center remember">
+							<input type="checkbox">Remember Me
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Войти" class="btn float-right login_btn">
+						</div>
+					</form>
+					<form id="registrForm" method="post" action="/Main/registration" hidden>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-at"></i></span>
+							</div>
+							<input type="email" class="form-control" placeholder="your@email" name="email" required autofocus>
+							
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" class="form-control" placeholder="password" name="password" required>
+						</div>
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input type="password" class="form-control" placeholder="confirm password" name="password2" required>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Зарегистрироваться" class="btn float-right regist_btn">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>

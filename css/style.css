@@ -1,0 +1,570 @@
+body,html {
+    height: 100%;
+    margin: 0;
+    /* background: #7F7FD5;
+    background: -webkit-linear-gradient(to right, #090c15, #22072a, #780c3d);
+    background: linear-gradient(to right, #090c15, #22072a, #780c3d); */
+    /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; */
+    background-attachment: fixed;    
+    font-family: 'Numans', sans-serif;
+}
+
+.chat {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.card {
+    height: 700px;
+    border-radius: 15px !important;
+    background-color: rgba(0,0,0,0.4) !important;
+}
+
+.contacts_body {
+    padding:  0.75rem 0 !important;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.msg_card_body {
+    overflow-y: auto;
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+}
+
+.card-footer {
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+}
+
+.container_login {
+    height: 100%;
+    align-content: center;
+}
+
+.container {
+    align-content: center;
+}
+
+.search {
+    border-radius: 15px 0 0 15px !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color:white !important;
+}
+
+.search:focus {
+    box-shadow:none !important;
+    outline:0px !important;
+}
+
+.type_msg {
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color:white !important;
+    height: 60px !important;
+    overflow-y: auto;
+}
+
+.type_msg:focus {
+    box-shadow:none !important;
+    outline:0px !important;
+}
+
+.attach_btn {
+    border-radius: 15px 0 0 15px !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.send_btn {
+    border-radius: 0 15px 15px 0 !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.search_btn {
+    padding: 6px 10px !important;
+    font-size: 25px;
+    border-radius: 0 16px 16px 0 !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.contacts {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.contacts li {    
+    width: 100% !important;
+    padding: 5px 10px;
+    margin-bottom: 0px !important;
+}
+
+/* .active {
+    background-color: rgba(0,0,0,0.3);
+} */
+
+.board {
+    z-index: 5;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.board:hover {
+    z-index: 5;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.user_img {
+    height: 50px;
+    width: 50px;
+    border:1.5px solid #f5f6fa;
+}
+
+.user_img_msg {
+    height: 40px;
+    width: 40px;
+    border:1.5px solid #f5f6fa;
+}
+
+.user_img_profile {
+    height: 150px;
+    width: 150px;
+    border:1.5px solid #000000;    
+}
+
+
+.img_cont {
+    position: relative;
+    height: 55px;
+    width: 55px;
+}
+
+
+.img_cont_profile {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+.img_cont_msg {
+    height: 40px;
+    width: 40px;
+}
+
+.online_icon {
+    position: absolute;
+    height: 15px;
+    width:15px;
+    background-color: #4cd137;
+    border-radius: 50%;
+    bottom: 0.2em;
+    right: 0.4em;
+    border:1.5px solid white;
+}
+
+.offline {
+    background-color: #c23616 !important;
+}
+
+.user_info {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+
+.user_info span {
+    font-size: 20px;
+    color: white;
+}
+
+.user_info p {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+}
+
+.audio {
+    margin-left: 50px;
+    margin-top: 5px;
+}
+
+.audio span {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.msg_cotainer {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #691683;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    position: relative;
+}
+
+.msg_cotainer_send {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: #158468;
+    color: rgba(255,255,255,0.8);
+    padding: 10px;
+    position: relative;
+}
+
+.msg_time {
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+}
+
+.msg_time_send {
+    position: absolute;
+    right:0;
+    bottom: -15px;
+    color: rgba(255,255,255,0.5);
+    font-size: 10px;
+}
+
+.msg_head {
+    position: relative;
+}
+ 
+#action_menu_btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.action_menu {
+    z-index: 1;
+    position: absolute;
+    padding: 15px 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 15px;
+    top: 30px;
+    right: 15px;
+    display: none;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
+
+.action_menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.action_menu ul li {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+}
+
+.action_menu ul li i {
+    padding-right: 10px;
+}
+
+.action_menu ul li:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+}
+
+@media(max-width: 576px) {
+    .contacts_card {
+    margin-bottom: 15px !important;
+    }
+}
+
+.d-flex {
+    height: 55px;
+}
+
+.card_login {
+    position: relative;
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+    z-index: 1;
+}
+
+    
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+    
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+    
+.card-header {
+    margin-top: 10px;
+    display: flex;
+    color: white;
+}
+    
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+    
+.input-group-prepend span {
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+}
+    
+input:focus {
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+}
+    
+.remember {
+    color: white;
+}
+    
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+    
+.login_btn {
+    margin-bottom: 20px;
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+}
+
+.login_btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.regist_btn {
+    margin-bottom: 20px;
+    color: black;
+    background-color: #FFC312;
+    width: 220px;
+}
+
+.regist_btn:hover {
+    color: black;
+    background-color: white;
+}
+
+
+.log_btn {
+    margin-right: 5px;
+    width: 140px;
+}
+
+.reg_btn {
+    margin-left: 5px;
+    width: 200px;
+}
+
+.item {
+    width: 200px;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    margin-left: 4px;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: rgb(135, 135, 135);
+}
+
+a:link {
+    text-decoration: none!important;
+}
+
+.centered-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.text {
+    color:rgb(190, 190, 190);
+}
+
+.error {
+    color:rgb(190, 0, 0);    
+}
+
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.setting__popup,
+.create__popup,
+.profile__popup {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.close_popup {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.checkselect {
+	position: relative;
+	display: inline-block;
+	min-width: 350px;    
+    margin-bottom: 20px;
+	text-align: left;
+}
+.checkselect-control {
+	position: relative;
+	padding: 0 !important;
+}		
+.checkselect-control select {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin: 0;
+	padding-left: 5px;
+	height: 30px;
+}
+.checkselect-over {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0; 			
+	cursor: pointer;
+}
+.checkselect-popup {
+	display: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+	max-height: 200px;
+	position: absolute;
+	top: 100%;
+	left: 0px; 
+	border: 1px solid #dadada;
+	border-top: none;
+	background: #fff;
+	z-index: 2;
+	overflow: auto;
+	user-select: none;
+}	
+.checkselect label {
+	position: relative;
+	display: block;
+	margin: 0;
+	padding: 4px 6px 4px 25px;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.1;
+	cursor: pointer;
+}			
+.checkselect-popup input {
+	position: absolute;
+	top: 5px; 
+	left: 8px;
+	margin: 0 !important;
+	padding: 0;
+}
+.checkselect-popup label:hover {
+	background: #03a2ff;
+	color: #fff;
+}
+.checkselect-popup fieldset {
+	display: block;
+	margin:  0;
+	padding: 0;
+	border: none;
+}
+.checkselect-popup fieldset input {
+	left: 15px;
+}		
+.checkselect-popup fieldset label {
+	padding-left: 32px;
+}		
+.checkselect-popup legend {
+	display: block;
+	margin: 0;
+	padding: 5px 8px;
+	font-weight: 700;
+	font-size: 1em;
+	line-height: 1.1;
+}
+
+.select_wrp {
+    width: 300px;
+	margin: 0 auto;
+}
+
+#hideEmail {
+    margin-bottom: 20px;
+}
+
+.select2-selection {
+    height: 35px !important;
+}

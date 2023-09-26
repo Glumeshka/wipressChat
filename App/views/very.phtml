@@ -1,0 +1,26 @@
+<body>
+	<main class="container_login">
+		<div class="d-flex justify-content-center h-100" >
+			<div class="card_login">
+				<div class="card-header justify-content-center">
+                    Введите код из письма на почте:<?php echo ' ' .$pageData['email']?>
+				</div>
+					<?php if(!empty($pageData['message'])) { echo '<div class="d-flex justify-content-center error">' . $pageData['message'] . '</div>';}?>
+				<div class="card-body">
+					<form id="veryForm" method="post" action="/Very/confirm">
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+                            <input type="text" hidden name="<?php echo $pageData['email']?>">
+							<input type="number" min="1" step="1" class="form-control" placeholder="code" name="code" required>
+						</div>
+						<div class="form-group">
+							<input type="submit" value="Отправить" class="btn float-right regist_btn">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
