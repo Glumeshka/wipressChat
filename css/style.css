@@ -38,6 +38,7 @@ body,html {
 }
 
 .card-footer {
+    display: none;
     border-radius: 0 0 15px 15px !important;
     border-top: 0 !important;
 }
@@ -127,9 +128,20 @@ li {
     background-color: rgba(0,0,0,0.3);
 }
 
+.mute {
+    z-index: 5;
+    cursor: pointer;
+    background-color: rgba(167, 3, 255, 0.7);
+}
+
 .board:hover {
     z-index: 5;
     background-color: rgba(0,0,0,0.8);
+}
+
+.mute:hover {
+    z-index: 5;
+    background-color: rgba(167, 3, 255, 0.3);
 }
 
 .user_img {
@@ -212,7 +224,7 @@ li {
     margin-right: 20px;
 }
 
-.msg_cotainer {
+.msg_container {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 10px;
@@ -223,7 +235,7 @@ li {
     position: relative;
 }
 
-.msg_cotainer_send {
+.msg_container_send {
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 10px;
@@ -344,7 +356,7 @@ ul {
     top: -45px;
 }
     
-.input-group-prepend span {
+.input-group-prepend span {    
     width: 50px;
     background-color: #FFC312;
     color: black;
@@ -567,4 +579,61 @@ a:link {
 
 .select2-selection {
     height: 35px !important;
+}
+
+.right-click-menu {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    list-style: none;
+    background: #000000;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    display: none;
+    z-index: 50;
+}
+
+.right-click-menu.active {
+    display: block;
+}
+
+.right-click-menu li {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.right-click-menu li:hover {
+    background: #303030;
+}
+
+.additional-menu  {
+    color:rgb(190, 190, 190);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    list-style: none;
+    background: #000000;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    display: block;
+    z-index: 50;
+}
+
+.additional-menu.inactive {
+    display: none;
+}
+
+.additional-menu li {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.additional-menu li:hover {
+    background: #303030;
 }

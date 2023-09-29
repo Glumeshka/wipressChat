@@ -13,14 +13,12 @@ class ChatModel extends Model
             'chats'     => $this->getChats($id),
             'groups'    => $this->getGroups($id),
             'search'    => $this->getSearch($id),
-            'online'    => 1,
         ];
        
         return $userData;
     }
 
-    public function chatData($id, $chat_id) // мы хочем получить: свой ник, свой аватар, чужой ник, чужик ники, аватары,
-                                            // количество сообщений, свои сообщения, чужие сообщения
+    public function chatData($id, $chat_id)                                            
     {        
         
         $hes_id = $this->getHeId($id, $chat_id); // массив с цифрами в виде строк
@@ -36,12 +34,12 @@ class ChatModel extends Model
         }
 
         $userData = [
-
             'name_chat'       => $this->getNameChat($chat_id),
             'hes_members'     => $hes_members,            
             'messages'        => $this->getBoard($chat_id),                
-            'messages_count'  => $this->getCountmsg($chat_id)
-
+            'messages_count'  => $this->getCountMsg($chat_id),
+            'chat_id'         => $chat_id,
+            'mute_chat'       => $this->getMuteChats($chat_id)
         ];
        
         return $userData;
@@ -114,17 +112,18 @@ class ChatModel extends Model
                     WHERE u.user_id != :id
                     AND JSON_CONTAINS(c.participants, JSON_ARRAY(u.user_id))
                     LIMIT 1
-                ) AS user_id
-                FROM chats c
-                WHERE c.chat_type = 'Пользовательский'
-                AND JSON_CONTAINS(c.participants, JSON_ARRAY(:id))";               
+                ) AS user_id,
+                    c.mute_chat AS mute
+                    FROM chats c
+                    WHERE c.chat_type = 'Пользовательский'
+                    AND JSON_CONTAINS(c.participants, JSON_ARRAY(:id))";               
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(":id", intval($id), \PDO::PARAM_INT);
         $stmt->execute();
 
         $chats = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $chats; // chat_id, name, avatar, user_id
+        return $chats; // chat_id, name, avatar, user_id, mute
     }
 
     public function getSearch($id)
@@ -159,7 +158,7 @@ class ChatModel extends Model
 
     public function getGroups($id)
     {
-        $sql = "SELECT c.chat_id, c.group_name
+        $sql = "SELECT c.chat_id, c.group_name, c.mute_chat AS mute
                 FROM chats c 
                 WHERE c.chat_type = 'Групповой'
                 AND JSON_CONTAINS(c.participants, JSON_ARRAY(:id))";
@@ -169,7 +168,7 @@ class ChatModel extends Model
         $stmt->execute();
         
         $groups = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $groups; // chat_id: group_name
+        return $groups; // chat_id: group_name, mute
     }
 
     public function getMessage($id_message)
@@ -212,6 +211,16 @@ class ChatModel extends Model
 
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(":message_text", $message, \PDO::PARAM_STR);
+        $stmt->bindValue(":message_id", intval($id_message), \PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function deleteMessage($id_message)
+    {   
+        $sql = "DELETE FROM messages
+                WHERE messages.message_id = :message_id";
+
+        $stmt = $this->db->prepare($sql);        
         $stmt->bindValue(":message_id", intval($id_message), \PDO::PARAM_INT);
         $stmt->execute();
     }
@@ -372,7 +381,7 @@ class ChatModel extends Model
         return $result;
     }
 
-    public function getCountmsg($chat_id)
+    public function getCountMsg($chat_id)
     {
         $sql = "SELECT COUNT(message_text) AS message_count
                 FROM messages
@@ -383,5 +392,29 @@ class ChatModel extends Model
         $count = $stmt->fetch(\PDO::FETCH_NUM);
 
         return $count;       
+    }
+
+    public function getMuteChats($chat_id)
+    {
+        $sql = "SELECT mute_chat
+                FROM chats
+                WHERE chat_id = :chat_id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(":chat_id", intval($chat_id), \PDO::PARAM_INT);
+        $stmt->execute();
+        $mute = $stmt->fetch(\PDO::FETCH_NUM);
+
+        return $mute;       
+    }
+
+    public function swapMuteChats($chat_id, $value)
+    {
+        $sql = "UPDATE chats SET mute_chat = :mute_chat
+                WHERE chats.chat_id = :chat_id";
+        $mute = (intval($value) === 1) ? 0 : 1;
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(":chat_id", intval($chat_id), \PDO::PARAM_INT);
+        $stmt->bindValue(":mute_chat", $mute, \PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

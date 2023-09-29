@@ -35,12 +35,11 @@
                                 <span class="online_icon"></span>
                             </div>
                             <div class="user_info">
-                                <span id="name-chat" data-chat-id="">Chat with GOD</span>
-                                <p id="msg_count">XXX Messages</p>
+                                <span id="name-chat">Выберете Чат</span>
+                                <p id="msg_count">После Добавления</p>
                             </div>
                             <div class="audio">
-                                <span><i class="fas fa-bell"></i></span>
-                                <span><i class="fas fa-bell-slash"></i></span>
+                                <span><i id="mute-chat"></i></span>                                
 							</div>
                         </div>
                         <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
@@ -56,7 +55,7 @@
                     <div id="messages-container" class="card-body msg_card_body">
                         <!-- сообщения из JS -->
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer ">
                         <div class="input-group">
                             <textarea name="message" id="message" class="form-control type_msg" placeholder="Type your message..."></textarea>
                             <div class="input-group-append">
