@@ -31,7 +31,7 @@
 
 ### Логины и пароли
 * rzl1985@gmail.com / 123
-* rzl1985yandex.ru  / 123
+* rzl1985@yandex.ru / 123
 * 123@123.ru        / 123
 * asd@asd.we        / asd
 * test@test.com     / 123
